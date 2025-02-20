@@ -1,12 +1,12 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-
+import os
 # Title of the dashboard
 st.title('Vehicle Data Dashboard')
 
 #Load the dataset
-df= pd.read_csv('/opt/render/project/src/root directory/vehicles_us.csv')
+df= pd.read_csv('vehicles_us.csv')
 
 #Display dataset preview
 st.write('### Dataset Preview', df.head())
@@ -24,3 +24,6 @@ if st.checkbox('Show Full Dataset'):
     st.write('### Price vs. Year by Condition')
     fig_scatter = px.scatter(df, x='model_year', y='price', color='condition', title='Price vs Model Year by Condition')
     st.plotly_chart(fig_scatter)
+    
+    print("Current working directory:", os.getcwd())
+    
