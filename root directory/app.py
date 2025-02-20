@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-
+import os
 # Title of the dashboard
 st.title('Vehicle Data Dashboard')
 
@@ -24,3 +24,6 @@ if st.checkbox('Show Full Dataset'):
     st.write('### Price vs. Year by Condition')
     fig_scatter = px.scatter(df, x='model_year', y='price', color='condition', title='Price vs Model Year by Condition')
     st.plotly_chart(fig_scatter)
+    
+    print("Current working directory:", os.getcwd())
+    
